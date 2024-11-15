@@ -1,4 +1,6 @@
 import express from 'express';
+import {mongoDBURL} from './config.js'
+import mongoose from 'mongoose';
 
 const app = express();
 app.use(express.json());
@@ -9,6 +11,16 @@ app.get('/', (request, response) => {
     
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-  });
+
+  mongoose
+        .connect(mongoDBURL)
+        .then(() => {
+            app.listen(PORT, () => {
+                console.log(`Server is running on http://localhost:${PORT}`);
+              });
+           console.log("connected to the database")
+        })
+        .catch((error) => {
+            console.log(error);
+            
+        })
