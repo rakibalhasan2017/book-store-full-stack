@@ -2,6 +2,7 @@ import express from 'express';
 import {mongoDBURL} from './config.js'
 import mongoose from 'mongoose';
 import {book as Book} from './model/bookmodel.js'
+import bookroute from './routers/bookroute.js'
 
 const app = express();
 app.use(express.json());
@@ -11,30 +12,7 @@ app.get('/', (request, response) => {
    return response.status(234).send("welcome to the project")
     
 })
-app.post('/book', async (request, response) => {
-  try{
-    if(!request.body.title ||
-      !request.body.author ||
-      !request.body.publishyear
-    ) {
-      return response.status(400).send({
-        message: "send all the reqired fields first"
-      })
-    }
-    const newbook = {
-      title: request.body.title,
-      author: request.body.author,
-      publishyear: request.body.publishyear
-    }
-    const book = await Book.create(newbook);
-    return response.status(201).send(book);
-  }
-  catch(error) {
-    console.log(error.message);
-    response.status(500).send({message: error.message})
-    
-  }
-})
+app.use('/book',bookroute);
   mongoose
         .connect(mongoDBURL)
         .then(() => {
