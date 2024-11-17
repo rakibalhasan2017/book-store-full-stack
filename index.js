@@ -3,9 +3,11 @@ import {mongoDBURL} from './config.js'
 import mongoose from 'mongoose';
 import {book as Book} from './model/bookmodel.js'
 import bookroute from './routers/bookroute.js'
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (request, response) => {
