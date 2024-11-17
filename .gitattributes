@@ -1,0 +1,19 @@
+# Ensure all text files use LF in the repository
+* text=auto
+
+# Explicitly enforce LF for specific file types
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+
+# Explicitly enforce CRLF for Windows-specific files
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Prevent line-ending conversion for binary files
+*.jpg binary
+*.png binary
+*.gif binary
+*.exe binary
+*.zip binary
