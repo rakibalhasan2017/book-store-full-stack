@@ -16,9 +16,9 @@ function App() {
     <Routes>
       <Route path = '/' element = {<Home />} />
       <Route path = '/book/create' element = {<Createbook/>}/>
-      <Route path = '/book/details/id' element = {<Showbook/>}/>
-      <Route path = '/book/edit/id' element = {<Editbook/>}/>
-      <Route path = '/book/delete/id' element = {<Deletebook/>}/>
+      <Route path="/book/details/:id" element={<Showbook />} />
+      <Route path = '/book/edit/:id' element = {<Editbook/>}/>
+      <Route path = '/book/delete/:id' element = {<Deletebook/>}/>
     </Routes>
     </>
   )

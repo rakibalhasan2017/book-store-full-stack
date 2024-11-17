@@ -7,7 +7,6 @@ router.get('/', async(request, response) => {
     try {
       const book = await Book.find({});
       return response.status(200).json({
-        count: book.length,
         data: book
       });
     }
@@ -18,11 +17,11 @@ router.get('/', async(request, response) => {
     }
   })
   
-  router.get('/:id', async(request, response) => {
+  router.get('/details/:id', async(request, response) => {
     try {
       const {id} = request.params;
-      
     const book = await Book.findById(id);
+    console.log(book);
     return response.status(201).json({
       data: book
     })

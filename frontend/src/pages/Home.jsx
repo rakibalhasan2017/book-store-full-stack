@@ -12,7 +12,7 @@ const Home = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/book");// Replace with your actual API
+        const response = await axios.get("http://localhost:5000/book");
         setBooks(Array.isArray(response.data) ? response.data : response.data.data || []);
         setLoading(false);
       } catch (error) {
@@ -52,19 +52,19 @@ const Home = () => {
               key={index}
               className={index % 2 === 0 ? styles.even_row : styles.odd_row}
             >
-              <td>{book.id}</td>
+              <td>{book._id}</td>
               <td>{book.title}</td>
               <td>{book.author}</td>
               <td>{book.publishyear}</td>
               <td>
                 <div className={styles.operations_column}>
-                  <Link to={`/book/details/${book.id}`} className={styles.operations_link}>
-                    Info
-                  </Link>
-                  <Link to={`/book/edit/${book.id}`} className={styles.operations_link}>
+                <Link to={`/book/details/${book._id}`} className={styles.operations_link}>
+                Info
+                </Link>
+                  <Link to={`/book/edit/${book.book_containerid}`} className={styles.operations_link}>
                     Edit
                   </Link>
-                  <Link to={`/book/delete/${book.id}`} className={styles.operations_link}>
+                  <Link to={`/book/delete/${book._id}`} className={styles.operations_link}>
                     Delete
                   </Link>
                 </div>
