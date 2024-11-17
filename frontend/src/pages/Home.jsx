@@ -61,7 +61,7 @@ const Home = () => {
                 <Link to={`/book/details/${book._id}`} className={styles.operations_link}>
                 Info
                 </Link>
-                  <Link to={`/book/edit/${book.book_containerid}`} className={styles.operations_link}>
+                  <Link to={`/book/edit/${book._id}`} className={styles.operations_link}>
                     Edit
                   </Link>
                   <Link to={`/book/delete/${book._id}`} className={styles.operations_link}>

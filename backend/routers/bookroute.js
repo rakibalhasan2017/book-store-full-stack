@@ -33,7 +33,7 @@ router.get('/', async(request, response) => {
     
   })
   
-  router.put('/:id', async(request, response) => {
+  router.put('/edit/:id', async(request, response) => {
     try {
       const { title, author, publishyear } = request.body;
       if(!request.body.title ||
@@ -46,7 +46,6 @@ router.get('/', async(request, response) => {
       }
       const {id} = request.params;
       const book = await Book.findByIdAndUpdate(id, {title, author, publishyear}, {new: true, runValidators: true});
-  
       if (!book) {
         return response.status(404).send({ message: "Book not found" });
       }
@@ -62,7 +61,7 @@ router.get('/', async(request, response) => {
     }
   })
   
-  router.post('/', async (request, response) => {
+  router.post('/create', async (request, response) => {
     try{
       if(!request.body.title ||
         !request.body.author ||
@@ -88,7 +87,7 @@ router.get('/', async(request, response) => {
   })
   
   
-  router.delete('/:id', async(request, response) => {
+  router.delete('/delete/:id', async(request, response) => {
     try {
       const {id} = request.params;
       const book = await Book.findByIdAndDelete(id);

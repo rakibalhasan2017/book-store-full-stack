@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Spinner from '../component/Spinner.jsx'
 
-
 const Showbook = () => {
   const [book, setBook] = useState([]);
   const [loading, setloading] = useState(true);
@@ -11,7 +10,7 @@ const Showbook = () => {
   // console.log("Extracted ID:", id);
   useEffect(() => {
     const fetchData = async () => {
-      setloading(true);
+       setloading(true);
       try {
         const response = await axios.get(`http://localhost:5000/book/details/${id}`);
         console.log(response.data);
