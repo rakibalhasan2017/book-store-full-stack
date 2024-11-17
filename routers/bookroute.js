@@ -24,7 +24,6 @@ router.get('/', async(request, response) => {
       
     const book = await Book.findById(id);
     return response.status(201).json({
-      count: book.length,
       data: book
     })
     }
