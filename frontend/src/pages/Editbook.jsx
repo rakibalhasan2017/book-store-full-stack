@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styles from './editbook.module.css'; 
 import { useParams } from 'react-router-dom'
 
-const Createbook = () => {
+const Editbook = () => {
   const [title, settitle] = useState("");
   const [author, setauthor] = useState("");
   const [publishyear, setpublishyear] = useState("");
@@ -73,4 +73,4 @@ const Createbook = () => {
   )
 }
 
-export default Createbook
+export default Editbook
